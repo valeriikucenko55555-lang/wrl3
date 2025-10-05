@@ -29,11 +29,9 @@ def launch_gradio_ui():
             if not msg.strip():
                 return "", chat_history, chat_history
 
-            # 1️⃣ Додаємо повідомлення користувача
             chat_history.append({"role": "user", "content": msg})
             yield "", chat_history, chat_history
             
-            # 2️⃣ Додаємо повідомлення асистента з "думанням"
             thinking_message = {"role": "assistant", "content": "."}
             chat_history.append(thinking_message)
             yield "", chat_history, chat_history
@@ -48,7 +46,6 @@ def launch_gradio_ui():
                 final_response = run_crew(msg)
                 response_ready = True
 
-            # Запускаємо генерацію відповіді у окремому потоці
             final_response = ""
             thread = Thread(target=generate_response)
             thread.start()
@@ -64,7 +61,6 @@ def launch_gradio_ui():
                 time.sleep(0.5)
 
 
-            # 4️⃣ Коли відповідь готова, замінюємо думання на текст
             chat_history[-1]["content"] = final_response
             yield "", chat_history, chat_history
 
