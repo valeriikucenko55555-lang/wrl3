@@ -10,5 +10,7 @@ git clone https://github.com/valeriikucenko55555-lang/wrl3.git
 ## Running the Project
 
 Pred spusteniem potrebujeme zadat AZURE_API_KEY v my_first/.env
+
 cd wrl3\my_first\src
+
 python -m my_first.main gradio
