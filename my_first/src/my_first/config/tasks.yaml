@@ -1,0 +1,18 @@
+fact_finding_task:
+  description: >
+    Conduct research and collect detailed and interesting information about {topic}. 
+    Focus on rich, descriptive texts that explain facts thoroughly.
+  expected_output: >
+    A collection of detailed texts about {topic}.
+  agent: researcher
+
+summarization_task:
+  description: >
+    Take the detailed texts from the previous task and extract 5 most interesting key facts. 
+    Present them as a numbered list from 1 to 5, in clear and concise language.
+  expected_output: >
+    A numbered summary of 5 key facts about {topic}, written in a way that is 
+    easy to read and engaging.
+  agent: summarizer
+  context:
+  - fact_finding_task
